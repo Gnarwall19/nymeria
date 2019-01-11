@@ -17,7 +17,7 @@ const guarantee = (val) => {
 
     throw new Error('Assertion Failed');
 };
-console.log(emoji.get('coffee'));
+
 module.exports = {
     guarantee,
     check
