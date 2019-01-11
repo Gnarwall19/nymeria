@@ -1,12 +1,14 @@
 // use 'check' to wrap assertions into unit tests
 // like 'it' in Jasmine
+const colors = require('colors');
+
 const check = (title, cb) => {
     try {
         cb();
-        console.log(`OK ${title}`);
+        console.log(`${' OK '.bgGreen.black} ${title.green}`);
     } catch (e) {
-        console.log(`FAIL ${title}`);
-        console.log(e.stack);
+        console.log(`${' FAIL '.bgRed.black} ${title.red}`);
+        console.log(e.stack.red);
     }
 };
 
@@ -15,7 +17,7 @@ const guarantee = (val) => {
 
     throw new Error('Assertion Failed');
 };
-
+console.log(emoji.get('coffee'));
 module.exports = {
     guarantee,
     check
