@@ -34,8 +34,16 @@ check('returns false when passing a non-blank string', () => {
 
 // Group: startsWith method
 // Test: returns true when it starts with the passed string
-guarantee(stringUtils.startsWith('Just when I...', 'Just'));
+check('returns true when it starts with the passed string', () => {
+    guarantee(stringUtils.startsWith('Just when I...', 'Just'));
+});
+
 // Test: returns false when it contains the passed string, but doesn't start with it
-guarantee(!stringUtils.startsWith('Just when I...', 'when I'));
+check('returns false when it contains the passed string, but does not start with it', () => {
+    guarantee(!stringUtils.startsWith('Just when I...', 'when I'));
+});
+
 // Test: returns false when it doesn't contain the passed string
-guarantee(!stringUtils.startsWith('Just when I...', 'corleone'));
+check('returns false when it does not contain the passed string', () => {
+    guarantee(!stringUtils.startsWith('Just when I...', 'corleone'));
+});
