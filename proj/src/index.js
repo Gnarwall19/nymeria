@@ -3,9 +3,9 @@
 const check = (title, cb) => {
     try {
         cb();
-        console.log('OK ${title}');
+        console.log(`OK ${title}`);
     } catch (e) {
-        console.log('FAIL ${title}');
+        console.log(`FAIL ${title}`);
         console.log(e.stack);
     }
 };
@@ -17,5 +17,6 @@ const guarantee = (val) => {
 };
 
 module.exports = {
-    guarantee
+    guarantee,
+    check
 };
