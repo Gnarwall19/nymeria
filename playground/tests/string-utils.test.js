@@ -1,6 +1,8 @@
 const {
     guarantee,
-    check
+    check,
+    xcheck,
+    group
 } = require('nymeria');
 const stringUtils = require('../src/string-utils');
 
