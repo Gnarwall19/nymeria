@@ -9,8 +9,8 @@ const numberUtils = require('../src/number-utils');
 
 // Group: isPrime method
 // Test: returns true for prime numbers
-group('number utils', () => {
-    group('method: is prime', () => {
+group('Number Utils', () => {
+    group('Method: is prime', () => {
         xcheck('returns true for prime numbers', () => {
             guarantee(numberUtils.isPrime(2));
             guarantee(numberUtils.isPrime(3));
@@ -29,7 +29,7 @@ group('number utils', () => {
     });
 });
 
-group('numbers fail test', () => {
+group('Numbers Fail Test', () => {
     check('this test should fail', () => {
         guarantee(123 === 321); // should fail
     });

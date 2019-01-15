@@ -1,6 +1,11 @@
 // use 'check' to wrap assertions into unit tests
 // like 'it' in Jasmine
 const colors = require('colors');
+const matchers = require('./matchers');
+
+const repeat = (str, n) => Array(n).join(str);
+const indent = n => repeat('    ', n);
+const indentLines = (str, n) => indent(n) + str.replace(/\n/g, `\n${indent(n)}`);
 
 const summary = {
     pass: 0,
@@ -8,25 +13,29 @@ const summary = {
     disabled: 0
 }
 
+let indentLevel = 0
+
 const group = (title, cb) => {
-    console.log(`\n⇨ ${title}`.yellow);
+    indentLevel++;
+    console.log(`\n${indent(indentLevel)}⇨ ${title}`.yellow);
     cb();
+    indentLevel--;
 }
 
 const check = (title, cb) => {
     try {
         cb();
-        console.log(`${' OK '.bgGreen.black} ${title.green}`);
+        console.log(`${indent(indentLevel + 1)}${' OK '.bgGreen.black} ${title.green}`);
         summary.pass++;
     } catch (e) {
-        console.log(`${' FAIL '.bgRed.black} ${title.red}`);
-        console.log(e.stack.red);
+        console.log(`${indent(indentLevel + 1)}${' FAIL '.bgRed.black} ${title.red}`);
+        console.log(indentLines(e.stack.red, indentLevel + 1));
         summary.fail++;
     }
 };
 
 const xcheck = (title, cb) => {
-    console.log(`${' DISABLED '.bgWhite.black} ${title.gray}`);
+    console.log(`${indent(indentLevel + 1)}${' DISABLED '.bgWhite.black} ${title.gray}`);
     summary.disabled++;
 };
 
@@ -35,6 +44,8 @@ const guarantee = (val) => {
 
     throw new Error('Assertion Failed');
 };
+
+Object.assign(guarantee, matchers);
 
 const end = () => {
     console.log(`\n...............\n`.rainbow);

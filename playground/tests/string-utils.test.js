@@ -8,44 +8,55 @@ const stringUtils = require('../src/string-utils');
 
 // Group: capitalizeFirstLetter method
 // Test: capitalizes the first letter of a string
-check('capitalizes the first letter of a string', () => {
-    guarantee(stringUtils.capitalizeFirstLetter('why so serious?') === 'Why so serious?');
-});
+group('String Utils', () => {
 
-// Test: don't change the case of the remaining characters
-check('does not change the case of other characters', () => {
-    guarantee(stringUtils.capitalizeFirstLetter('why So Serious?') === 'Why So Serious?');
-});
+    group('Method: capitalize first letter', () => {
 
+        check('capitalizes the first letter of a string', () => {
+            guarantee(stringUtils.capitalizeFirstLetter('why so serious?') === 'Why so serious?');
+        });
 
-// Group: isBlank method
-// Test: returns true when passing an empty string
-check('returns true when passing an empty string', () => {
-    guarantee(stringUtils.isBlank(''));
-});
+        // Test: don't change the case of the remaining characters
+        check('does not change the case of other characters', () => {
+            guarantee(stringUtils.capitalizeFirstLetter('why So Serious?') === 'Why So Serious?');
+        });
+    })
 
-// Test: returns true when passing a string containing only spaces
-check('returns true when passing a string containing only spaces', () => {
-    guarantee(stringUtils.isBlank('      '));
-});
+    group('Method: is blank', () => {
 
-// Test: returns false when passing a non-blank string
-check('returns false when passing a non-blank string', () => {
-    guarantee(!stringUtils.isBlank('whatever'));
-});
+        // Group: isBlank method
+        // Test: returns true when passing an empty string
+        check('returns true when passing an empty string', () => {
+            guarantee(stringUtils.isBlank(''));
+        });
 
-// Group: startsWith method
-// Test: returns true when it starts with the passed string
-check('returns true when it starts with the passed string', () => {
-    guarantee(stringUtils.startsWith('Just when I...', 'Just'));
-});
+        // Test: returns true when passing a string containing only spaces
+        check('returns true when passing a string containing only spaces', () => {
+            guarantee(stringUtils.isBlank('      '));
+        });
 
-// Test: returns false when it contains the passed string, but doesn't start with it
-check('returns false when it contains the passed string, but does not start with it', () => {
-    guarantee(!stringUtils.startsWith('Just when I...', 'when I'));
-});
+        // Test: returns false when passing a non-blank string
+        check('returns false when passing a non-blank string', () => {
+            guarantee(!stringUtils.isBlank('whatever'));
+        });
+    })
 
-// Test: returns false when it doesn't contain the passed string
-check('returns false when it does not contain the passed string', () => {
-    guarantee(!stringUtils.startsWith('Just when I...', 'corleone'));
-});
+    group('Method: starts with', () => {
+
+        // Group: startsWith method
+        // Test: returns true when it starts with the passed string
+        check('returns true when it starts with the passed string', () => {
+            guarantee(stringUtils.startsWith('Just when I...', 'Just'));
+        });
+
+        // Test: returns false when it contains the passed string, but doesn't start with it
+        check('returns false when it contains the passed string, but does not start with it', () => {
+            guarantee(!stringUtils.startsWith('Just when I...', 'when I'));
+        });
+
+        // Test: returns false when it doesn't contain the passed string
+        check('returns false when it does not contain the passed string', () => {
+            guarantee(!stringUtils.startsWith('Just when I...', 'corleone'));
+        });
+    })
+})
