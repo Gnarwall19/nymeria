@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Nymeria</title>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <header id="nav-head">🐺 Nymeria</header>
+        <ul>
+            <a class="nav-link" href="#Introduction" rel="internal">
+                <li>Introduction</li>
+            </a>
+            <a class="nav-link" href="#Prerequisits" rel="internal">
+                <li>Prerequisits</li>
+            </a>
+            <a class="nav-link" href="#Styling_Text" rel="internal">
+                <li>Suites</li>
+            </a>
+            <a class="nav-link" href="#Styling_Boxes" rel="internal">
+                <li>Specs</li>
+            </a>
+            <a class="nav-link" href="#Advanced_Box_Properties" rel="internal">
+                <li>Advanced Box Properties</li>
+            </a>
+            <a class="nav-link" href="#Box_Display_Types" rel="internal">
+                <li>Box Display Types</li>
+            </a>
+            <a class="nav-link" href="#CSS_Layout" rel="internal">
+                <li>Guarantee</li>
+            </a>
+            <a class="nav-link" href="#CSS_Layout" rel="internal">
+                <li>Matchers</li>
+            </a>
+            <a class="nav-link" href="#CSS_Layout" rel="internal">
+                <li>Setup & Teardown</li>
+            </a>
+            <a class="nav-link" href="#CSS_Layout" rel="internal">
+                <li>Disabling Specs</li>
+            </a>
+            <a class="nav-link" href="#Reference" rel="internal">
+                <li>Reference</li>
+            </a>
+        </ul>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>Nymeria is a small, but powerful testing framework for JavaScript code. It comes with it's own easy
+                    to read test runner and does not require a DOM. Nymeria uses syntax that's easy to read, write, and
+                    comprehend.
+                    <br /><br />
+                    Please note that Nymeria is not for use in production environments, but can be a
+                    great practice tool for learning similar, more powerful and widley used testing frameworks!
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Prerequisits">
+            <header>Up & Running</header>
+            <article>
+                <p>Let's get started:</p>
+                <ol>
+                    <li>Download / Clone the <a href="https://github.com/Gnarwall19/nymeria">GitHub repo</a></li>
+                    <li>Copy the <code>proj</code> folder and paste it into your applications source folder</li>
+                    <li>Create your own <code>tests</code> folder in your applications source folder</li>
+                    <li>Run <code>npm init -y</code> (still in your apps source)</li>
+                    <li>Open the <code>package.json</code> file and remove <code>"main": "index.js"</code></li>
+                    <li>Add:
+                        <code class="multi-line">
+                            "scripts": {
+                            "tests": "node tests"
+                            },
+                        </code>
+                    </li>
+                    <li>Navigate to <code>proj</code> folder and run <code>npm link</code></li>
+                    <li>Navigate back to app src folder and run <code>npm link nymeria</code></li>
+                    <li>Now you should be able to run your tests with the command <code>node tests</code></li>
+                </ol>
+            </article>
+        </section>
+        <section class="main-section" id="Styling_Text">
+            <header>Suites</header>
+            <article>
+                <p>The <code>group</code> function groups related specs into an easy to read
+                    collection. Simply provide a title for your group and list your specs within the callback
+                    function.
+                    <pre>
+                        <code>
+                            group("title to describe collection", () => {
+                                check("contains spec to be checked", () => {
+                                    guarantee.truthy('abc');
+                                });
+                            });
+                        </code>
+                    </pre>
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Styling_Boxes">
+            <header>Styling Boxes</header>
+            <article>
+                <p>As you'll no doubt know by now, every element within a document is structured as a rectangular box
+                    inside the document layout, with properties that can be altered like so:</p>
+                <div class="image-wrapper">
+                    <img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="box model">
+                </div>
+                <ul>
+                    <li>width and height set the width/height of the content box.</li>
+                    <li>The padding family of properties sets the width of the padding (don't forget longhand
+                        properties
+                        like padding-bottom that allow you to set one side at once).</li>
+                    <li>The margin family of properties sets the width of the outer area surrounding the CSS box, which
+                        pushes up against other CSS boxes in the layout (again, longhand properties like margin-bottom
+                        are
+                        available).</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Advanced_Box_Properties">
+            <header>Advanced Box Properties</header>
+            <article>
+                <p>Now we've had a brief recap, let's look at some more advanced box properties that you'll find
+                    useful.</p>
+                <h3>Setting width and height constraints</h3>
+                <p>Other properties exist that allow more flexible ways of handling content box size — setting size
+                    constraints rather than an absolute size. This can be done with the properties <code>min-width</code>,
+                    <code>max-width</code>, <code>min-height</code>,
+                    and <code>max-height</code>.</p>
+                <p>An obvious use is if you want to allow a layout's width to be flexible, by setting its outer
+                    container's
+                    width as a percentage, but you also don't want it to become too wide or too narrow because the
+                    layout
+                    would start to look bad. One option here
+                    would be to use responsive web design techniques (which we'll cover later), but a simpler method
+                    might
+                    be to just give the layout a maximum and minimum width constraint:</p>
+                <code>width: 70%;</code><br>
+                <code>min-width: 480px;</code><br>
+                <code>min-width: 480px;</code>
+                <p>You could also couple this with the following line, which centers the container it is applied to
+                    inside
+                    its parent:</p>
+                <code>margin: 0 auto;</code>
+                <p>0 causes the top and bottom margins to be 0, while auto (in this case) shares the available space
+                    between the left and right margins of the container, centering it. The end result is that when the
+                    container is within the min and max width constraints,
+                    it will fill the entire viewport width. When 1280px width is exceeded, the layout will stay at
+                    1280px
+                    wide, and start to be centered inside the available space. When the width goes below 480px, the
+                    viewport will become smaller than the container,
+                    and you'll have to scroll to see it all.</p>
+                <h3>Changing the box model completely</h3>
+                <p>The total width of a box is the sum of its <code>width</code>, <code>padding-right</code>, <code>padding-left</code>,
+                    <code>border-right</code>, and <code>border-left</code> properties. In some cases it is annoying
+                    (for
+                    example, what if you want
+                    to have a box with a total width of 50% with border and padding expressed in pixels?) To avoid such
+                    problems, it's possible to tweak the box model with the property <code>box-sizing</code>. With the
+                    value border-box, it changes the box model to
+                    this new one:</p>
+                <div class="image-wrapper">
+                    <img src="https://mdn.mozillademos.org/files/13649/box-model-alt-small.png" alt="box model">
+                </div>
+                <p>Let's look at a live example. We will set up two identical elements, giving each one the same width,
+                    border and padding. We will also use some JavaScript to print out the computed value (the final
+                    on-screen value in pixels) of the width for each box. The only difference is that we've given the
+                    bottom box box-sizing: border-box, but we've left the top box with its default behaviour.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Box_Display_Types">
+            <header>Box Display Types</header>
+            <article>
+                <p>Everything we've said so far applies to boxes that represent block level elements. However, CSS has
+                    other types of boxes that behave differently. The type of box applied to an element is specified by
+                    the
+                    display property.</p>
+                <h3>Common Display Types</h3>
+                <p>There are many different values available for display, the three most common ones of which are <code>block</code>,
+                    <code>inline</code>, and <code>inline-block</code>.</p>
+                <ul>
+                    <li>A <code>block</code> box is defined as a box that's stacked upon other boxes (i.e. content
+                        before
+                        and after the box appears on a separate line), and can have width and height set on it. The
+                        whole
+                        box model as described above applies to block boxes.</li>
+                    <li>An <code>inline</code> box is the opposite of a block box: it flows with the document's text
+                        (i.e.
+                        it will appear on the same line as surrounding text and other inline elements, and its content
+                        will
+                        break with the flow of the text, like lines
+                        of text in a paragraph.) Width and height settings have no effect on <code>inline</code> boxes;
+                        any
+                        padding, margin and border set on <code>inline</code> boxes will update the position of
+                        surrounding
+                        text, but will not affect the position of
+                        surrounding block boxes.</li>
+                    <li>An <code>inline-block</code> box is something in between the first two: It flows with
+                        surrounding
+                        text without creating line breaks before and after it like an inline box, but it can be sized
+                        using
+                        width and height and maintains its block integrity
+                        like a <code>block</code> box — it won't be broken across paragraph lines (an inline-block box
+                        that
+                        overflows a line of text will drop down onto a 2nd line, as there is not enough space for it on
+                        the
+                        first line, and it won't break across two
+                        lines.)</li>
+                </ul>
+                <p>By default, block level elements have display: block; set on them, and inline elements have display:
+                    inline; set on them.</p>
+                <h3>Uncommon display types</h3>
+                <p>There are also some less commonly-used values for the <code>display</code> property that you will
+                    come
+                    across in your travels. Some of these have been around for a while and are fairly well supported,
+                    while
+                    others are newer and less well supported.
+                    These values were generally created to make creating web page/application layouts easier. The most
+                    interesting ones are:</p>
+                <ul>
+                    <li><code>display: table</code> — allows you to emulate table layouts using non-table elements,
+                        without
+                        abusing table HTML to do so.</li>
+                    <li><code>display: flex</code> — allows you to solve many classic layout problems that have plagued
+                        CSS
+                        for a long time, such as laying out a series of containers in flexible equal width columns, or
+                        vertically centering content.</li>
+                    <li><code>display: grid</code> — gives CSS a native way of easily implementing grid systems,
+                        whereas it
+                        has traditionally relied on somewhat hack-ish CSS grid frameworks. </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_Layout">
+            <header>CSS Layout</header>
+            <article>
+                <p>CSS page layout techniques allow us to take elements contained in a web page and control where they
+                    are
+                    positioned relative to their default position in normal layout flow, the other elements around
+                    them,
+                    their parent container, or the main viewport/window. The page layout techniques we'll be covering
+                    in
+                    more detail in this module are</p>
+                <ul>
+                    <li>Normal flow</li>
+                    <li>The <code>display</code> Property</li>
+                    <li>Flexbox</li>
+                    <li>Grid</li>
+                    <li>Floats</li>
+                    <li>Positioning</li>
+                    <li>Table layout</li>
+                    <li>Multiple-column layout</li>
+                </ul>
+                <p>Each technique has its uses, advantages, and disadvantages, and no technique is designed to be used
+                    in
+                    isolation. By understanding what each method is designed for you will be in a good place to
+                    understand
+                    which is the best layout tool for each task.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <article>
+                <p>Check out this extensive guide of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS
+                        References</a> courtesy of MDN Web Docs.</p>
+            </article>
+        </section>
+    </main>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
 
 **This framework was put together in order to help me better understand how testing wokrs in JavaScript. I Do NOT recommend ANYBODY use Nymeria for testing prodcution code!!**
 
-Now since that's out of the way, * *how do you use Nymeria to test your code??* *
+Now since that's out of the way, *how do you use Nymeria to test your code??*
 Well as of now it's a long and complicated process, BUT... Like this:
 
 1. Download / Clone this repo
