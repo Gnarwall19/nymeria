@@ -1,6 +1,9 @@
 const {
     guarantee,
-    check
+    check,
+    xcheck,
+    group,
+    beforeEach
 } = require('nymeria');
 
 check('playing with our new matchers', () => {
@@ -12,6 +15,8 @@ check('playing with our new matchers', () => {
         whatever: 777
     };
     const b = a;
+    const w = true;
+    guarantee.same(w, true);
     guarantee.same(a, b);
     guarantee.identical(undefined, null);
     const c = {
@@ -29,4 +34,38 @@ check('playing with our new matchers', () => {
     }
     guarantee.throws(boom);
     guarantee.throws(boom, 'Some error...');
+});
+
+
+group("Testing beforeEach", () => {
+    var foo = 0;
+
+    beforeEach(() => {
+
+        foo += 1;
+    });
+
+    check("if foo will increment to 1", () => {
+        guarantee.same(foo, 1);
+    });
+
+    check("if foo will increment to 2", () => {
+        guarantee.same(foo, 2);
+    });
+
+    check("if foo will increment to 3", () => {
+        guarantee.same(foo, 3);
+    });
+
+    // This seems like a bad test, but I wanted to play with guarantee.throw
+    check("if foo will increment to 4 and throw our error", () => {
+
+        if (foo === 4) {
+            var anError = () => {
+                throw new Error('I made this error throw when everything works CORRECTLY!');
+            }
+        }
+        guarantee.throws(anError, 'I made this error throw when everything works CORRECTLY!');
+        // console.log(`foo now equals: ${foo}`);
+    });
 });

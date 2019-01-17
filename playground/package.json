@@ -1,14 +1,8 @@
 {
   "name": "playground",
   "version": "1.0.0",
-  "description": "",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

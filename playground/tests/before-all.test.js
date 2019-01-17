@@ -2,14 +2,15 @@ const {
     guarantee,
     check,
     group,
-    beforeAll
+    beforeAll,
+    beforeEach
 } = require('nymeria');
 
 let a;
 
 beforeAll(() => {
     a = {
-        something: 'example'
+        something: '4'
     };
 });
 
@@ -18,13 +19,13 @@ group('playing with the beforeAll function', () => {
 
     beforeAll(() => {
         b = {
-            something: 'example'
+            something: '4'
         };
     });
-    check('some test', () => {
+    check('If a and b are deeply identical', () => {
         guarantee.deeplyIdentical(a, b);
     });
-    check('another test', () => {
-        guarantee.identical(11, 11);
+    check('If b.something == 4', () => {
+        guarantee.identical(b.something, 4);
     });
 });

@@ -5,6 +5,37 @@ body {
     line-height: 1.5;
 }
 
+.container {
+    display: grid;    
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px 350px 50px;
+    grid-gap: 5px;
+    grid-template-areas:
+        "h h h h h h h h h h h h"
+        "m m c c c c c c c c c c"
+        "m m c c c c c c c c c c";
+}
+
+.fixed-header-container {
+    grid-area: h;
+    background: rgb(0, 143, 143);
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 20px 0 20px;
+    /* min-height: 50px;
+    padding: 8px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9999; */
+}
+
+#logo {
+display: inline-block;
+}
+
 header {
     font-size: 30px;
     text-align: center;
@@ -23,21 +54,23 @@ header {
 }
 
 #navbar {
+    grid-area: m;
     position: fixed;
     height: 100%;
-    width: 250px;
-    min-width: 290px;
+    /* width: 250px;
+    min-width: 290px; */
     z-index: 1;
-    padding-top: 20px;
-    top: 0px;
-    left: 0px;
-    border-right: solid #4d4e53;
+    /* padding-top: 10px; */
+    top: 80px;
+    /*left: 0px;
+     border-right: solid #4d4e53; */
 }
 
 #navbar ul {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 80%
+    height: 80%;
+    padding-left: 0px; 
 }
 
 #navbar a {
@@ -48,18 +81,16 @@ header {
 #navbar li {
     list-style: none;
     color: #4d4e53;
-    border: 1px solid #4d4e53;
     border-bottom-width: 0px;
-    position: relative;
     width: 100%;
-    left: -40px;
     padding: 20px;
 
 }
 
 #main-doc {
-    margin-left: 300px;
-    padding: 0px 10px;
+    grid-area: c;
+    padding: 10px 30px 10px 30px;
+    margin: 20px 10px;
 }
 
 .main-section {
@@ -88,10 +119,53 @@ img {
     width: 600px;
 }
 
+#green {
+    color: green;
+}
+
+#red {
+    color: red;
+}
+
+#gray {
+    color: gray;
+}
+
 
 @media only screen and (max-width: 815px) {
 
-    #navbar ul {
+    .container {
+    display: grid;    
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px 350px 50px;
+    grid-gap: 5px;
+    grid-template-areas:
+        "h h h h h h m m m m m m"
+        "c c c c c c c c c c c c"
+        "c c c c c c c c c c c c";
+}
+
+#navbar {
+    grid-area: m;
+    position: fixed;
+    height: 100%;
+    /* width: 250px;
+    min-width: 290px; */
+    z-index: 1;
+    /* padding-top: 10px; */
+    top: 80px;
+    /*left: 0px;
+     border-right: solid #4d4e53; */
+}
+
+#navbar ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80%;
+    padding-left: 0px; 
+}
+
+    /* #navbar ul {
         border: 1px solid;
         height: 210px;
     }
@@ -111,5 +185,5 @@ img {
         position: relative;
         padding-top: 275px;
         margin-left: 0;
-    }
+    } */
 }
