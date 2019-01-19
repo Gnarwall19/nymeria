@@ -1,6 +1,6 @@
 ## :wolf: Nymeria
 #### A small but functional JavaScript testing framework
-
+##### [Check the Docs!](https://gnarwall19.github.io/nymeria/)
 ###### Built with lots of help from Alcides Queiroz's guide on Medium
 
 **This framework was put together in order to help me better understand how testing wokrs in JavaScript. I Do NOT recommend ANYBODY use Nymeria for testing prodcution code!!**

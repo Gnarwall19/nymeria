@@ -86,6 +86,7 @@ const end = () => {
     log(`  Pass: ${summary.pass}`.green);
     log(`  Fail: ${summary.fail}`.red);
     log(`  Disabled: ${summary.disabled}\n\n`.gray);
+    log(`\n${repeat('.', 60)}\n`.rainbow);
 
     if (summary.fail > 0) process.exit(1);
     process.exit(0);

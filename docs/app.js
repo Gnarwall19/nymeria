@@ -5,3 +5,4 @@ function classToggle() {
 }
 
 document.querySelector('.Navbar__Link-toggle').addEventListener('click', classToggle);
+//document.querySelector('.nav-link').addEventListener('click', classToggle);
