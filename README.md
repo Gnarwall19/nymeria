@@ -1,4 +1,5 @@
 ## :wolf: Nymeria
+![](https://img.shields.io/npm/v/@gnarwall19/nymeria.svg?style=popout)
 #### A small but functional JavaScript testing framework
 
 ###### Built with lots of help from Alcides Queiroz's guide on Medium
@@ -6,22 +7,17 @@
 **This framework was put together in order to help me better understand how testing wokrs in JavaScript. I Do NOT recommend ANYBODY use Nymeria for testing prodcution code!!**
 
 Now since that's out of the way, *how do you use Nymeria to test your code??*
-Well as of now it's a long and complicated process, BUT... Like this:
+~Well as of now it's a long and complicated process, BUT...~ Like this:
 
-1. Download / Clone this repo
-2. Copy the `proj` folder and paste it into your applications source folder
-3. Create your own `tests` folder in your applications source folder
-4. Run `npm init -y` (still in your apps source)
-5. Open the `package.json` file and remove `"main": "index.js"`
-6. Add:
-    ```
-    "scripts": {
-        "tests": "node tests"
-    },
-    ```
-7. Navigate to `proj` folder and run `npm link`
-8. Navigate back to app src folder and run `npm link nymeria`
-9. Now you SHOULD be able to run your tests with the command `node tests`
+`npm i @gnarwall19/nymeria`
+
+1. Create your own `tests` folder in your applications source folder
+2. In your `tests` folder, create an `index.js` file that:
+    - has a variable called nymeria that requires '@gnarwall19/nymeria'
+    - Requires your `whatever.test.js` files
+    - Finishes with `nymeria.end()` to run the exit code
+3. Write all the tests you want in your .test.js files just make sure you require them in `index.js`!
+4. Run `node tests` from your projects source in the terminal/command prompt
 
 ## CONSIDER THIS: ##
 
