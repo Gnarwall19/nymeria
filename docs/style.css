@@ -87,6 +87,10 @@ header {
 
 }
 
+.Navbar__Link-toggle {
+  display: none;
+}
+
 #main-doc {
     grid-area: c;
     padding: 10px 30px 10px 30px;
@@ -158,12 +162,25 @@ img {
      border-right: solid #4d4e53; */
 }
 
-#navbar ul {
-    overflow-y: auto;
+.navbar-items {
+    /* overflow-y: auto;
     overflow-x: hidden;
     height: 80%;
-    padding-left: 0px; 
+    padding-left: 0px;  */
+    display: none;
 }
+
+.Navbar__Link-toggle {
+  align-self: flex-end;
+  display: initial;
+  position: absolute;
+  cursor: pointer;
+}
+
+ .Navbar__ToggleShow {
+    display: flex;
+  }
+
 
     /* #navbar ul {
         border: 1px solid;
