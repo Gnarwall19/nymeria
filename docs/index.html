@@ -82,23 +82,32 @@
                 <header>Up & Running</header>
                 <article>
                     <p>Let's get started:</p>
+                    <code>npm i @gnarwall19/nymeria --save-dev</code>
                     <ol>
-                        <li>Download / Clone the <a href="https://github.com/Gnarwall19/nymeria">GitHub repo</a></li>
-                        <li>Copy the <code>proj</code> folder and paste it into your applications source folder</li>
                         <li>Create your own <code>tests</code> folder in your applications source folder</li>
-                        <li>Run <code>npm init -y</code> (still in your apps source)</li>
-                        <li>Open the <code>package.json</code> file and remove <code>"main": "index.js"</code></li>
-                        <li>Add:
-                            <code class="multi-line">
-                                "scripts": {
-                                "tests": "node tests"
-                                },
-                            </code>
-                        </li>
-                        <li>Navigate to <code>proj</code> folder and run <code>npm link</code></li>
-                        <li>Navigate back to app src folder and run <code>npm link nymeria</code></li>
-                        <li>Now you should be able to run your tests with the command <code>node tests</code></li>
+                        <li>In your <code>tests</code> folder, create an <code>index.js</code> file that:</li>
+                        <ul>
+                            <li>has a variable called nymeria that requires '@gnarwall19/nymeria'</li>
+                            <li>Requires your <code>whatever.test.js</code> files</li>
+                            <li>Finishes with <code>nymeria.end()</code> to run the exit code</li>
+                        </ul>
+                        <li>Write all the tests you want in your .test.js files just make sure you require them in
+                            <code>index.js</code></li>
+                        <li>Run `node tests` from your projects source in the terminal/command prompt</li>
                     </ol>
+                    <h2>Consider This:</h2>
+                    <ul>
+                        <li>Make sure your tests folder has an <code>index.js</code> file that:</li>
+                        <ol>
+                            <li>Requires nymeria as a const</li>
+                            <li>Requires your <code>whatever.test.js</code> files</li>
+                            <li>Finishes with <code>nymeria.end()</code> to run the exit code</li>
+                        </ol>
+                        <li><code>Whatever.test.js</code> files need to require <code>{ guarantee, check, xcheck, group
+                                }</code> as a const
+                            from nymeria</li>
+                        <li>Check out the playground folder for some examples!</li>
+                    </ul>
                 </article>
             </section>
             <section class="main-section" id="Groups">
