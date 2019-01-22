@@ -3,6 +3,7 @@ body {
     min-width: 290px;
     font-family: 'Open Sans', Arial, sans-serif;
     line-height: 1.5;
+    background: rgb(236, 236, 236);
 }
 
 .container {
@@ -25,11 +26,6 @@ body {
     top: 0;
     left: 0;
     padding: 0 20px 0 20px;
-    /* min-height: 50px;
-    padding: 8px 0;
-    position: fixed;
-    width: 100%;
-    z-index: 9999; */
 }
 
 #logo {
@@ -57,13 +53,8 @@ header {
     grid-area: m;
     position: fixed;
     height: 100%;
-    /* width: 250px;
-    min-width: 290px; */
     z-index: 1;
-    /* padding-top: 10px; */
     top: 80px;
-    /*left: 0px;
-     border-right: solid #4d4e53; */
 }
 
 #navbar ul {
@@ -95,6 +86,7 @@ header {
     grid-area: c;
     padding: 10px 30px 10px 30px;
     margin: 20px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .main-section {
@@ -111,11 +103,31 @@ section li {
     margin: 15px 0px 15px 0px;
 }
 
-.image-wrapper {
+/* .image-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     margin: 50px 0px 50px 0px;
+} */
+
+pre {
+    line-height: 1;
+    display: flex;
+    border-left: solid grey 5px;
+    border-radius: 3px;
+}
+
+code {
+    background: rgb(255, 184, 53);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+}
+
+pre code {
+    padding: 20px;
 }
 
 img {

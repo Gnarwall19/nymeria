@@ -118,11 +118,11 @@
                         function.
                         <pre>
                         <code>
-                            group("title to describe collection", () => {
-                                check("contains spec to be checked", () => {
-                                    guarantee.truthy('abc');
-                                });
-                            });
+group("title to describe collection", () => {
+    check("contains spec to be checked", () => {
+        guarantee.truthy('abc');
+    });
+});
                         </code>
                     </pre>
                     </p>
@@ -134,7 +134,7 @@
                     <p>
                         Specs are defined by calling the global function <code>check</code> and
                         are syntatically similar to the <code>group</code> function in that they
-                        both take a string and a function as ARGUMENTS(?PARAMETERS?). The string is
+                        both take a string and a function as arguments. The string is
                         the title of the spec and the function is the test itself. Like other popular
                         testing frameworks, A spec contains one or more expectations that test the
                         state of the code. An expectation, or <code>guarantee</code> in Nymeria, is
@@ -154,15 +154,15 @@
                     </p>
                     <pre>
                     <code>
-                        group("A suite is just a function", function() {
-                            var a;
+group("A suite is just a function", function() {
+    var a;
                         
-                            check("and so is a spec", function() {
-                                a = true;
+    check("and so is a spec", function() {
+        a = true;
                         
-                                guarantee.same(a, true);
-                            });
-                        });
+        guarantee.same(a, true);
+    });
+});
                     </code>
                 </pre>
                 </article>
@@ -178,17 +178,17 @@
                     </p>
                     <pre>
                     <code>
-                        check("for a positive case", () => {
-                            guarantee(123 === 123);
-                        });
+check("for a positive case", () => {
+    guarantee(123 === 123);
+});
                     </code>
                 </pre>
                     <br />
                     <pre>
                     <code>
-                        check("and for a negative case", () => {
-                            guarantee.falsy(null);
-                        });
+check("and for a negative case", () => {
+    guarantee.falsy(null);
+});
                     </code>
                 </pre>
                     <p>
@@ -208,11 +208,11 @@
                     </p>
                     <pre>
                     <code>
-                        check('a is the same as b', () => {
-                            const a = 5;
-                            const b = a;
-                            guarantee.same(a, b);
-                        });
+check('a is the same as b', () => {
+    const a = 5;
+    const b = a;
+    guarantee.same(a, b);
+});
                     </code>
                 </pre>
                     <p>
@@ -221,10 +221,10 @@
                     </p>
                     <pre>
                     <code>
-                        check('if str is truthy', () => {
-                            const str = 'abc';
-                            guarantee.truthy(str);
-                        });
+check('if str is truthy', () => {
+    const str = 'abc';
+    guarantee.truthy(str);
+});
                     </code>
                 </pre>
                 </article>
@@ -240,22 +240,22 @@
                     </p>
                     <pre>
                     <code>
-                        group("Testing beforeEach", () => {
-                            var foo = 0;
+group("Testing beforeEach", () => {
+    var foo = 0;
                         
-                            beforeEach(() => {
+    beforeEach(() => {
                         
-                                foo += 1;
-                            });
+        foo += 1;
+    });
                         
-                            check("if foo will increment to 1", () => {
-                                guarantee.same(foo, 1);
-                            });
+    check("if foo will increment to 1", () => {
+        guarantee.same(foo, 1);
+    });
                         
-                            check("if foo will increment to 2", () => {
-                                guarantee.same(foo, 2);
-                            });
-                        });
+    check("if foo will increment to 2", () => {
+        guarantee.same(foo, 2);
+    });
+});
                     </code>
                 </pre>
                     <p>
@@ -264,31 +264,31 @@
                     </p>
                     <pre>
                     <code>
-                        let a;
+let a;
                         
-                        beforeAll(() => {
-                            a = {
-                                something: '4'
-                            };
-                        });
+beforeAll(() => {
+    a = {
+        something: '4'
+    };
+});
                         
-                        group('playing with the beforeAll function', () => {
-                            let b;
+group('playing with the beforeAll function', () => {
+    let b;
                         
-                            beforeAll(() => {
-                                b = {
-                                    something: '4'
-                                };
-                            });
+    beforeAll(() => {
+        b = {
+            something: '4'
+        };
+    });
 
-                            check('If a and b are deeply identical', () => {
-                                guarantee.deeplyIdentical(a, b);
-                            });
+    check('If a and b are deeply identical', () => {
+        guarantee.deeplyIdentical(a, b);
+    });
 
-                            check('If b.something == 4', () => {
-                                guarantee.identical(b.something, 4);
-                            });
-                        });
+    check('If b.something == 4', () => {
+        guarantee.identical(b.something, 4);
+    });
+});
                     </code>
                 </pre>
                 </article>
@@ -305,12 +305,12 @@
                     </p>
                     <pre>
                     <code>
-                        group('Method: is prime', () => {
-                            xcheck('returns true for prime numbers', () => {
-                                guarantee(numberUtils.isPrime(2));
-                                guarantee(numberUtils.isPrime(3));
-                            });
-                        });
+group('Method: is prime', () => {
+    xcheck('returns true for prime numbers', () => {
+        guarantee(numberUtils.isPrime(2));
+        guarantee(numberUtils.isPrime(3));
+    });
+});
                     </code>
                 </pre>
                 </article>
