@@ -8,7 +8,7 @@
 Now since that's out of the way, *how do you use Nymeria to test your code??*
 Well as of now it's a long and complicated process, BUT... Like this:
 
-`npm i @gnarwall19/nymeria`
+`npm i @gnarwall19/nymeria --save-dev`
 
 1. Create your own `tests` folder in your applications source folder
 2. In your `tests` folder, create an `index.js` file that:

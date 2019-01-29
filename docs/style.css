@@ -32,6 +32,12 @@ body {
     display: inline-block;
 }
 
+#github-link,
+:visited {
+    text-decoration: none;
+    color: white;
+}
+
 header {
     font-size: 30px;
     text-align: center;
